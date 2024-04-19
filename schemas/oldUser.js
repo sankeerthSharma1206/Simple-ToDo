@@ -1,22 +1,24 @@
 const mongoose = require('mongoose');
 
-const loginSchema = new mongoose.Schema({
-    email: 
+const listSchema = new mongoose.Schema({
+    email:
+    {
+        type: String
+    },
+    title: 
     {
         type: String,
         required: true,
-        unique: true
     },
-
-    password:
+    completed : 
     {
-        type: String,
-        required: String
+        type : Boolean,
+        default: false,
+        required: true
     }
-
 })
 
 
-const loginUser = mongoose.model('loginUser', loginSchema);
+const listData = mongoose.model('listData', listSchema , 'listdatas');
 
-module.exports = loginUser;
+module.exports = listData;
